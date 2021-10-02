@@ -116,6 +116,7 @@ plt.savefig('rate_change_sports')
 # FIFTH: check each individaul ability for every sport. PLotting a single ability to see how it is measured in each sport 
 
 # lets create a new dataframe based on the sports dataframe but only containing the sports present in money
+# because those are the only profiteable sports in the last 30 years
 
 sports_cropped = sports[(sports.Sport == 'Boxing')|(sports.Sport == 'Auto Racing')|(sports.Sport == 'Golf')|
                        (sports.Sport == 'Basketball')|(sports.Sport == 'Tennis')|(sports.Sport == 'American Football')|
