@@ -83,4 +83,42 @@ df_kmeans_1.to_csv('clusters_mean.csv')
 
 # PCA (Principal Component Analysis)
 
+# here we want to plot the results of our clusters, for some visual comprehension
 
+pca = PCA(n_components=2)
+principalComponents = pca.fit_transform(df_kmeans.drop(["Sport"], axis = 1))
+principalDf = pd.DataFrame(data = principalComponents, columns = ['principal component 1', 'principal component 2'])
+
+pca_plot = sns.scatterplot(principalDf["principal component 1"],principalDf["principal component 2"],
+                           hue= df_kmeans["cluster_pred"], palette='Spectral')
+plt.savefig('pca.png')
+
+# SAVING THE MODEL
+
+pickle.dump(model, open("model_k-means", 'wb'))
+
+# SOME CLUSTERS PLOTS
+# to have some viasulization of the abilities in each cluster 
+# the mean is chosen to be the method for getting an idea of the abilities of each cluster
+
+df_kmeans_1.reset_index(inplace=True)
+t_km = df_kmeans_1.iloc[:4].T.reset_index().iloc[1:]
+
+figc = make_subplots(rows=2, cols=2, subplot_titles=('Cluster 0', 'Cluster 1', 'Cluster 2', 'Cluster 3'))
+
+figc.add_trace(go.Bar(x=t_km['index'],
+                      y=t_km[0]), row=1, col=1)
+figc.add_trace(go.Bar(x=t_km['index'],
+                      y=t_km[1]), row=1, col=2)
+figc.add_trace(go.Bar(x=t_km['index'],
+                      y=t_km[2]), row=2, col=1)
+figc.add_trace(go.Bar(x=t_km['index'],
+                      y=t_km[3]), row=2, col=2)
+
+figc.update_xaxes(tickangle=45)
+
+figc.update_layout(showlegend=False) 
+
+figc.update_layout(height=800, width=700,
+                  title_text = 'EACH ABILITY FOR THE DIFFERENT CLUSTERS')
+plt.savefig('ability_cluster.png')
