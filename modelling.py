@@ -122,3 +122,31 @@ figc.update_layout(showlegend=False)
 figc.update_layout(height=800, width=700,
                   title_text = 'EACH ABILITY FOR THE DIFFERENT CLUSTERS')
 plt.savefig('ability_cluster.png')
+
+# the following is the sports present in each cluster
+
+cluster0 = ['Boxing', 'Ice Hockey', 'Football', 'Basketball', 'Wrestling',
+       'Martial Arts', 'Tennis', 'Baseball/Softball', 'Soccer',
+       'Skiing: Alpine', 'Water Polo', 'Rugby', 'Lacrosse',
+       'Field Hockey', 'Volleyball', 'Racquetball/Squash', 'Fencing',
+       'Team Handball', 'Badminton']
+
+clutser1 = ['Table Tennis', 'Golf', 'Equestrian', 'Archery', 'Curling',
+       'Bowling', 'Shooting', 'Billiards', 'Fishing']
+
+cluster2 = ['Speed Skating', 'Figure Skating', 'Cycling: Distance',
+       'Cycling: Sprints', 'Skiing: Nordic', 'Track and Field: High Jump',
+       'Track and Field: Long, Triple jumps',
+       'Swimming (all strokes): Distance', 'Track and Field: Sprints',
+       'Rowing', 'Track and Field: Distance',
+       'Track and Field: Middle Distance', 'Weight-Lifting',
+       'Swimming (all strokes): Sprints', 'Track and Field: Weights',
+       'Canoe/Kayak', 'Roller Skating']
+
+cluster3 = ['Gymnastics', 'Rodeo: Steer Wrestling',
+       'Track and Field: Pole Vault', 'Surfing', 'Skiing: Freestyle',
+       'Bobsledding/Luge', 'Ski Jumping', 'Auto Racing', 'Diving',
+       'Skateboarding', 'Rodeo: Calf Roping',
+       'Rodeo: Bull/Bareback/Bronc Riding', 'Water Skiing',
+       'Horse Racing', 'Cheerleading']
+
