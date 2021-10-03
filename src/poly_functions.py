@@ -24,11 +24,12 @@ def extract_df(df, sport):
     
     return df_grouped
 
-def polynomial_plot(df):
+def polynomial_plot(df,sport):
     '''
     Draws a degree 3 polynomic regression for a desired dataframe
     Args:
         df(pd.DataFrame):the desire dataframe were we want the polynomic regression to be done
+        sport(str): the name of the sport of the individual plynomial regression
     Returns:
         matplotlib.pyplot: plot with the data scatterd and the polynomic regression line up to 2030
     '''
@@ -67,7 +68,7 @@ def polynomial_plot(df):
     plt.grid()
     plt.xlim(x_new_min,x_new_max)
 
-
+    plt.title(f'Prediction of the evolution of {sport} in the next 10 years')
     plt.xlabel('Year')
     plt.ylabel('Earnings (Million USD)')
 
