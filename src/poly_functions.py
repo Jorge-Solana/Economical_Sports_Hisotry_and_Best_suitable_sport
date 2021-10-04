@@ -74,3 +74,26 @@ def polynomial_plot(df,sport):
 
     plt.show()
 
+
+def give_sport(dictionary):
+    '''
+    Gives the most similar sport based on a given abilities after comparision of weighted abilities.
+    Args:
+        dictionary(dict): the abilities of the user
+    Returns:
+        str: the sport which is closer to the given data
+    '''
+    vector = [23,2352,235,223,23]
+    pd.Series(dictionary)
+    diff = abs((sports.iloc[:, 1:-2] - pd.Series(dictionary)).drop('Total', axis = 1)*vector)    
+    suma = []
+    for i, row in diff.iterrows():
+        suma.append(sum(row))
+    sports['Diff'] = suma
+    sort = sports.sort_values('Diff')
+    row_1=sort.iloc[0]
+    row_2=sort.iloc[1]
+    row_3=sort.iloc[2]
+    row_4=sort.iloc[3]
+    
+    return 'The sport that best suits your skills is: ', row_1.Sport, 'But you may also try: ', row_2.Sport, row_3.Sport, 'or', row_4.Sport
