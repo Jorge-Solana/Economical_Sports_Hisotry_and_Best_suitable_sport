@@ -19,7 +19,7 @@ from sklearn.decomposition import PCA
 
 import pickle
 
-import src.poly_functions as poly
+import src.model_functions as poly
 
 money = pd.read_csv('money_sports_clean.csv', index_col=0)
 sports = pd.read_csv('abilities_sports_clean.csv',index_col=0)
@@ -41,9 +41,10 @@ moto = poly.extract_df(money, "Moto GP")
 
 
 df_sport = [boxing, auto_racing, golfing, basketball, tennis, football, baseball, hockey, soccer, cycling, moto]
+str_sport = ['boxing', 'auto_racing', 'golfing', 'basketball', 'tennis', 'football', 'baseball', 'hockey', 'soccer', 'cycling', 'moto']
 
-for i in df_sport:
-    poly.polynomial_plot(i)
+for i, j in zip(df_sport, str_sport):
+    poly.polynomial_plot(i,j)
 
 # K-Means (Clustering)
 
@@ -149,4 +150,5 @@ cluster3 = ['Gymnastics', 'Rodeo: Steer Wrestling',
        'Skateboarding', 'Rodeo: Calf Roping',
        'Rodeo: Bull/Bareback/Bronc Riding', 'Water Skiing',
        'Horse Racing', 'Cheerleading']
+
 
