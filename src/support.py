@@ -142,3 +142,44 @@ def user_input():
     }
     
     return pd.DataFrame(data, index=[0])
+
+def give_sport(df):
+    '''
+    Gives the most similar sport based on a given abilities after comparision of weighted abilities.
+    Args:
+        dictionary(dict): the abilities of the user
+    Returns:
+        str: the sport which is closer to the given data
+    '''
+    sports = load_sports()
+    try:
+        vector = [1.2, 1.5, 1.8, 2.5, 1.5, 2.0, 2.2, 2.8, 1.8, 3]
+        hola = df.squeeze()
+        diff = abs((sports.iloc[:, 1:-2] - hola)*vector)    
+        suma = []
+        for i, row in diff.iterrows():
+            suma.append(sum(row))
+        sports['Diff'] = suma
+        sort = sports.sort_values('Diff')
+        row_1=sort.iloc[0]
+        row_2=sort.iloc[1]
+        row_3=sort.iloc[2]
+        row_4=sort.iloc[3]
+    
+        return 'The sport that best suits your skills is: ', row_1.Sport, 'But you may also try: ', row_2.Sport, row_3.Sport, 'or', row_4.Sport
+    
+    except:
+        vector = [1.2, 1.5, 1.8, 2.5, 1.5, 2.0, 2.2, 2.8, 1.8, 3]
+        hola = df.squeeze()
+        diff = abs((sports.iloc[:, 1:-2].drop(['Total'], axis = 1) - hola)*vector)    
+        suma = []
+        for i, row in diff.iterrows():
+            suma.append(sum(row))
+        sports['Diff'] = suma
+        sort = sports.sort_values('Diff')
+        row_1=sort.iloc[0]
+        row_2=sort.iloc[1]
+        row_3=sort.iloc[2]
+        row_4=sort.iloc[3]
+    
+        return 'The sport that best suits your skills is: ', row_1.Sport, 'But you may also try: ', row_2.Sport, row_3.Sport, 'or', row_4.Sport
