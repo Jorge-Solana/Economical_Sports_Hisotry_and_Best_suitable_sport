@@ -85,7 +85,7 @@ def give_sport(dictionary):
     '''
     vector = [1.2, 1.5, 1.8, 2.5, 1.5, 2.0, 2.2, 2.8, 1.8, 3]
     pd.Series(dictionary)
-    diff = abs((sports.iloc[:, 1:-2] - pd.Series(dictionary))*vector)    
+    diff = abs((sports.iloc[:, 1:-2].drop(['Total'], axis = 1) - pd.Series(dictionary))*vector)    
     suma = []
     for i, row in diff.iterrows():
         suma.append(sum(row))
