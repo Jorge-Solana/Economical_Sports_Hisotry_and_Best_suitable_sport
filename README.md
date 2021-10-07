@@ -1,6 +1,6 @@
 # History of sports... Which one is for me?
 
-![portada](images/deportes.jpg)
+![portada](https://github.com/Jorge-Solana/What-is-the-best-sport-for-you-ROI-of-abilities-in-each-sport/blob/main/images/deportes.jpg)
 
 ## Scope
 
