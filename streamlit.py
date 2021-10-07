@@ -12,7 +12,7 @@ from streamlit_pages import your_sport
 
 app = MultiPage()
 
-st.title('THE STORY OF SPORTS... Which one is for me?')
+st.title('THE HISTORY OF SPORTS... Which one is for me?')
 
 app.add_page('Home', home.app)
 app.add_page('Graphs', graphs.app)
